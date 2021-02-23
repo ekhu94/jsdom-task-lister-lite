@@ -5,7 +5,7 @@ const createLI = val => {
   let li = document.createElement('li')
   list.appendChild(li)
   li.innerText = val
-  li.style.fontSize = '200px'
+  
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,5 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault()
     let input = document.querySelector('input#new-task-description').value
     createLI(input)
+  })
+  list.addEventListener('click', (e) => {
+    if (e.target.tagName.toUpperCase() === 'LI') {
+      e.target.parentElement.removeChild(e.target)
+    }
   })
 });
